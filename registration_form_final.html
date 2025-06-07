@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 40px;
+        }
+        form {
+            background: #fff;
+            max-width: 600px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        label {
+            display: inline-block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        input[type="radio"], input[type="checkbox"] {
+            width: auto;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        fieldset {
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        legend {
+            font-weight: bold;
+        }
+        input[type="submit"], input[type="reset"] {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        input[type="reset"] {
+            background-color: #e74c3c;
+        }
+        input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+        input[type="reset"]:hover {
+            background-color: #c0392b;
+        }
+        label.inline {
+            display: inline;
+            margin-right: 15px;
+        }
+    </style>
+    <script>
+        function validatePasswords() {
+            const pass1 = document.getElementById("P").value;
+            const pass2 = document.getElementById("pass2").value;
+            if (pass1 !== pass2) {
+                alert("Passwords do not match.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+
+    <form action="Thankyou.html" method="post" onsubmit="return validatePasswords()">
+        <h2>Registration Form</h2>
+
+        <input type="hidden" name="userid">
+
+        <label for="fName">First Name:</label>
+        <input id="fName" name="firstName" type="text" placeholder="Enter your first name" required pattern="[A-Za-z]{4,}" title="Enter 4 or more letters" autocomplete="off">
+
+        <label for="lName">Last Name:</label>
+        <input id="lName" name="lastName" type="text" placeholder="Enter your last name" required pattern="[A-Za-z]{4,}" title="Enter 4 or more letters" autocomplete="off">
+
+        <label for="EM">Email:</label>
+        <input id="EM" name="email" type="email" placeholder="Enter email" required>
+
+        <label for="P">Password:</label>
+        <input id="P" name="password" type="password" placeholder="Enter password" minlength="5" maxlength="8" required>
+
+        <label for="pass2">Repeat Password:</label>
+        <input type="password" id="pass2" name="repeat_password" required>
+
+        <label for="bdate">Birth Date:</label>
+        <input type="date" id="bdate" name="birthdate">
+
+        <label for="pic">Upload Picture:</label>
+        <input type="file" id="pic" name="userpic" accept="image/*">
+
+        <fieldset>
+            <legend>Gender:</legend>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male" class="inline">Male</label>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female" class="inline">Female</label>
+        </fieldset>
+
+        <label for="faculty">Faculty:</label>
+        <select id="faculty" name="faculty">
+            <option value="engineering">Engineering</option>
+            <option value="science">Science</option>
+            <option value="arts">Arts</option>
+            <option value="commerce">Commerce</option>
+        </select>
+
+        <fieldset>
+            <legend>Interests:</legend>
+            <input type="checkbox" id="programming" name="interests" value="programming">
+            <label for="programming" class="inline">Programming</label>
+            <input type="checkbox" id="reading" name="interests" value="reading">
+            <label for="reading" class="inline">Reading</label>
+            <input type="checkbox" id="swimming" name="interests" value="swimming">
+            <label for="swimming" class="inline">Swimming</label>
+        </fieldset>
+
+        <label for="about">About you:</label>
+        <textarea id="about" name="about" rows="4" cols="40">© All rights reserved to ITI.</textarea>
+
+        <input type="checkbox" id="terms" name="terms" required>
+        <label for="terms">I agree to the <a href="terms.html" target="_blank">terms and conditions</a></label><br><br>
+
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+    </form>
+
+</body>
+</html>
